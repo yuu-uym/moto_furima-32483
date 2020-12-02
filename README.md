@@ -53,7 +53,7 @@ README.md
 | prefectures_id       | integer    | null: false                    |
 | day_to_delivery_id   | integer    | null: false                    |
 | value                | integer    | null: false                    |
-| user                 | references | null: false,foreign_key: true  | 
+| user_id              | references | null: false,foreign_key: true  | 
 
 ### Association
 
@@ -70,16 +70,26 @@ README.md
 | Column           | Type       | Options                        |
 | -------------    | ---------- | ------------------------------ |
 | postal_code      | string     | null: false                    |
-| prefectures      | string     | null: false                    |
+| prefectures_id   | integer    | null: false                    |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| item_id          | integer    | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :purchase 
+- has_one_active_hash :prefectures
+
+# purchase テーブル
+
+| Column           | Type       | Options                        |
+| -------------    | ---------- | ------------------------------ |
+| user_id          | references | null: false, foreign_key: true | 
+| item_id          | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- has_one_active_hash :prefectures
-
+- has_one :order
