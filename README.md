@@ -26,16 +26,16 @@ README.md
 # テーブル設計
 
 ## users テーブル
-| Column      | Type   | Options     |
-| ----------- | ------ | ----------- |
-| nickname    | string | null: false |
-| email       | string | null: false |
-| password    | string | null: false |
-| first_name  | string | null: false |
-| last_name   | string | null: false |
-| kana_first  | string | null: false |
-| kana_family | string | null: false |
-| birth       | date   | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| first_name         | string | null: false |
+| last_name          | string | null: false |
+| kana_first         | string | null: false |
+| kana_family        | string | null: false |
+| birth              | date   | null: false |
 
 ### Association
 
@@ -43,18 +43,17 @@ README.md
 - has_many :orders
 
 ## items テーブル
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | -----------                    |
-| photo             | text       | null: false                    |
-| name              | string     | null: false                    |
-| description       | text       | null: false                    |
-| category          | integer    | null: false                    |
-| condition         | integer    | null: false                    |
-| delivery_fee      | integer    | null: false                    |
-| prefectures       | integer    | null: false                    |
-| day_to_delivery   | integer    | null: false                    |
-| value             | integer    | null: false                    |
-| user              | references | null: false,foreign_key: true  | 
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | -----------                    |
+| name                 | string     | null: false                    |
+| description          | text       | null: false                    |
+| category_id          | integer    | null: false                    |
+| condition_id         | integer    | null: false                    |
+| delivery_fee_id      | integer    | null: false                    |
+| prefectures_id       | integer    | null: false                    |
+| day_to_delivery_id   | integer    | null: false                    |
+| value                | integer    | null: false                    |
+| user                 | references | null: false,foreign_key: true  | 
 
 ### Association
 
@@ -70,9 +69,6 @@ README.md
 
 | Column           | Type       | Options                        |
 | -------------    | ---------- | ------------------------------ |
-| card_information | string     | null: false                    |
-| expiration_date  | integer    | null: false, foreign_key: true |
-| security_code    | string     | null: false                    |
 | postal_code      | string     | null: false                    |
 | prefectures      | string     | null: false                    |
 | city             | string     | null: false                    |
